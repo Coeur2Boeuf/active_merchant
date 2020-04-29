@@ -178,7 +178,7 @@ module ActiveMerchant #:nodoc:
 
       def post_data(action, parameters = {})
         parameters.update(
-          version: API_VERSION,
+          version: @options[:version] || API_VERSION,
           type: TRANSACTIONS[action.to_sym],
           dateq: Time.now.strftime('%d%m%Y%H%M%S'),
           numquestion: unique_id(parameters[:order_id]),
